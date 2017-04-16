@@ -31,10 +31,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 表的结构 `statistics2`
+-- 表的结构 `statistics`
 --
 
-CREATE TABLE `statistics2` (
+CREATE TABLE `statistics` (
   `id` int(11) NOT NULL,
   `person` varchar(32) NOT NULL,
   `num` int(8) DEFAULT '1',
@@ -45,17 +45,17 @@ CREATE TABLE `statistics2` (
 -- --------------------------------------------------------
 
 --
--- 表的结构 `ten2`
+-- 表的结构 `ten`
 --
 
-CREATE TABLE `ten2` (
+CREATE TABLE `ten` (
   `id` int(32) NOT NULL,
   `person` varchar(32) NOT NULL,
   `sucNum` int(4) NOT NULL,
   `rate` varchar(16) NOT NULL,
   `name` varchar(16) NOT NULL,
   `code` varchar(8) NOT NULL,
-  `pdate` date NOT NULL,
+  `pdate` datetime NOT NULL,
   `ptime` time NOT NULL,
   `price` double DEFAULT NULL,
   `sdate` varchar(16) DEFAULT NULL,
@@ -73,14 +73,14 @@ CREATE TABLE `ten2` (
 --
 -- Indexes for table `statistics`
 --
-ALTER TABLE `statistics2`
+ALTER TABLE `statistics`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ten`
 --
 
-ALTER TABLE `ten2`
+ALTER TABLE `ten`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `update` (`person`,`code`,`pdate`,`price`) USING BTREE;
 --
@@ -90,12 +90,12 @@ ALTER TABLE `ten2`
 --
 -- 使用表AUTO_INCREMENT `statistics`
 --
-ALTER TABLE `statistics2`
+ALTER TABLE `statistics`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- 使用表AUTO_INCREMENT `ten`
 --
-ALTER TABLE `ten2`
+ALTER TABLE `ten`
   MODIFY `id` int(32) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
