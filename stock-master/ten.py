@@ -48,10 +48,10 @@ def getPageInfo(url, page) :
         if record['success'] == '--' :
             record['success'] = '0'
 
-        dateAndTime = re.split('\s+', td[5].text.encode("utf8"))
+        #dateAndTime = re.split('\s+', td[5].text.encode("utf8"))
         #record['pdate'] = dateAndTime[0]
         record['pdate'] = td[5].text.encode("utf8")
-        record['ptime'] = dateAndTime[1]
+        #record['ptime'] = dateAndTime[1]
         record['sdate'] = td[10].text.encode("utf8")
 
         # pprint(record)
@@ -63,9 +63,9 @@ def insertDB(info, table) :
 
     cur = conn.cursor()
 
-    insertStatement = "insert into " + table + "(person,sucNum,rate,name,code,price,pdate,ptime,success,sdate) VALUES('" + info['person'] + "','" + \
+    insertStatement = "insert into " + table + "(person,sucNum,rate,name,code,price,pdate,success,sdate) VALUES('" + info['person'] + "','" + \
         info['sucNum'] + "','" + info['rate'] + "','" + info['name'] + "','" + info['code'] + "','" + info['price'] + "','" + info['pdate'] + "','" + \
-        info['ptime'] + "','" + info['success'] + "','" + info['sdate'] + "')"
+        info['success'] + "','" + info['sdate'] + "')"
 
     statisticTable = "statistics"
 
@@ -128,7 +128,7 @@ conn = MySQLdb.connect(host=host,user=user,passwd=passwd,db=database,port=port,c
 tenURL = "http://www.178448.com/fjzt-1.html?" 
 page = 1  #53689
 
-while page <= 70 :  #done 8200
+while page <= 2 :  #done 8200
     print "page:" + str(page)
     getPageInfo(tenURL, page)
     page = page + 1

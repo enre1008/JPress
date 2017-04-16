@@ -56,7 +56,6 @@ CREATE TABLE `ten` (
   `name` varchar(16) NOT NULL,
   `code` varchar(8) NOT NULL,
   `pdate` datetime NOT NULL,
-  `ptime` time NOT NULL,
   `price` double DEFAULT NULL,
   `sdate` varchar(16) DEFAULT NULL,
   `success` int(4) NOT NULL DEFAULT '0'
